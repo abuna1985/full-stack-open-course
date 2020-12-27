@@ -4,19 +4,30 @@ import ReactDOM from 'react-dom'
 const Header = ({course}) => {
   return (
     <h1>{course}</h1>
-  )
+  );
 }
 
-const Content = ({part, exercises}) => {
+// Part will have the text for part and exercise number
+const Part = ({part, exercises}) => {
+  return <p>{part} {exercises}</p>;
+}
+
+// Create a content
+const Content = ({part1, part2, part3}) => {
   return (
-    <p>{part} {exercises}</p>
-  )
+    <>
+      {/* Using the spread operator to drop in the object */}
+      <Part {...part1} />
+      <Part {...part2} />
+      <Part {...part3} />
+    </>
+  );
 }
 
 const Total = ({total}) => {
   return (
     <p>Number of exercises {total}</p>
-  )
+  );
 }
 
 const App = () => {
@@ -31,12 +42,15 @@ const App = () => {
   return (
     <>
       <Header course={course} />
-      <Content part={part1} exercises={exercises1} />
-      <Content part={part2} exercises={exercises2} />
-      <Content part={part3} exercises={exercises3} />
+      {/* Decided to pass through an object for each part */}
+      <Content 
+        part1={{part: part1, exercises: exercises1}} 
+        part2={{part: part2, exercises: exercises2}} 
+        part3={{part: part3, exercises: exercises3}}
+      />
       <Total total={exercises1 + exercises2 + exercises3} />
     </>
-  )
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
