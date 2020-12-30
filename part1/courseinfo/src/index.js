@@ -32,21 +32,24 @@ const Total = ({total}) => {
 }
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const parts = [
-    {
-      name: 'Fundamentals of React',
-      exercises: 10
-    },
-    {
-      name: 'Using props to pass data',
-      exercises: 7
-    },
-    {
-      name: 'State of a component',
-      exercises: 14
-    }
-  ];
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ]
+  }
+
   const getExerciseTotal = (arr) => {
     return arr.reduce((all, item, i) => {
       return all + item.exercises;
@@ -55,10 +58,10 @@ const App = () => {
 
   return (
     <>
-      <Header course={course} />
+      <Header course={course.name} />
       {/* Decided to pass through an object for each part */}
-      <Content parts={parts}/>
-      <Total total={getExerciseTotal(parts)} />
+      <Content parts={course.parts}/>
+      <Total total={getExerciseTotal(course.parts)} />
     </>
   );
 }
