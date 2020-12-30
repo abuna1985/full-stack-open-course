@@ -13,13 +13,13 @@ const Part = ({name, exercises}) => {
 }
 
 // Create a content
-const Content = ({part1, part2, part3}) => {
+const Content = ({parts}) => {
+
   return (
     <>
-      {/* Using the spread operator to drop in the object */}
-      <Part {...part1} />
-      <Part {...part2} />
-      <Part {...part3} />
+      {parts && parts.map((part, i) => {
+        return <Part {...part} key={i} />
+      })}
     </>
   );
 }
@@ -32,29 +32,32 @@ const Total = ({total}) => {
 
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = {
-    name: 'Fundamentals of React',
-    exercises: 10
-  }
-  const part2 = {
-    name: 'Using props to pass data',
-    exercises: 7
-  }
-  const part3 = {
-    name: 'State of a component',
-    exercises: 14
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ];
+  const getExerciseTotal = (arr) => {
+    return arr.reduce((all, item, i) => {
+      return all + item.exercises;
+    }, 0);
   }
 
   return (
     <>
       <Header course={course} />
       {/* Decided to pass through an object for each part */}
-      <Content 
-        part1={part1} 
-        part2={part2} 
-        part3={part3}
-      />
-      <Total total={part1.exercises + part2.exercises + part3.exercises} />
+      <Content parts={parts}/>
+      <Total total={getExerciseTotal(parts)} />
     </>
   );
 }
