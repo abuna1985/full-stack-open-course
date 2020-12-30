@@ -14,12 +14,13 @@ const Part = ({name, exercises}) => {
 
 // Create a content
 const Content = ({parts}) => {
+  let [part1, part2, part3] = parts;
 
   return (
     <>
-      {parts && parts.map((part, i) => {
-        return <Part {...part} key={i} />
-      })}
+      <Part {...part1} />
+      <Part {...part2} />
+      <Part {...part3} />
     </>
   );
 }
