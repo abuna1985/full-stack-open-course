@@ -16,6 +16,27 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  const getTotal = (goodVotes, neutralVotes, badVotes) => {
+    return goodVotes + neutralVotes + badVotes;
+  }
+
+  const getAverage = (goodVotes, neutralVotes, badVotes) => {
+    let totalVotes = getTotal(goodVotes, neutralVotes, badVotes);
+    if (totalVotes === 0) {
+      return 0;
+    }
+    return (goodVotes + (-badVotes))/totalVotes;
+  }
+
+  const getPercentage = (goodVotes, neutralVotes, badVotes) => {
+    let totalVotes = getTotal(goodVotes, neutralVotes, badVotes);
+    if (totalVotes === 0) {
+      return 0;
+    }
+    return goodVotes/totalVotes * 100 + '%';
+  }
+
+
 
  
   return (
@@ -28,6 +49,9 @@ const App = () => {
       <Display value={good} text="Good" />
       <Display value={neutral} text="Neutral" />
       <Display value={bad} text="Bad" />
+      <Display value={getTotal(good, neutral, bad)} text="All" />
+      <Display value={getAverage(good, neutral, bad)} text="Average" />
+      <Display value={getPercentage(good, neutral, bad)} text="Positive" />
     </div>
   )
 }
