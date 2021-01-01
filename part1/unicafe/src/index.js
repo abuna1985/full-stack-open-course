@@ -3,9 +3,14 @@ import ReactDOM from 'react-dom';
 
 const Title = ({text}) => <h1>{text}</h1>
 
-const Display = ({value, text}) => <div>{text}: {value}</div>
+const Statistic = ({value, text}) => (
+    <tr>
+      <td>{text}</td> 
+      <td>{value}</td>
+    </tr>
+);
 
-const Button = ({handleClick, text}}) => (
+const Button = ({handleClick, text}) => (
   <button onClick={handleClick}>
     {text}
   </button>
@@ -39,12 +44,16 @@ const Statistics = ({good, neutral, bad}) => {
   return (
       <>
         <Title text="Statistics" />
-        <Display value={good} text="Good" />
-        <Display value={neutral} text="Neutral" />
-        <Display value={bad} text="Bad" />
-        <Display value={getTotal(good, neutral, bad)} text="All" />
-        <Display value={getAverage(good, neutral, bad)} text="Average" />
-        <Display value={getPercentage(good, neutral, bad)} text="Positive" />
+        <table>
+          <tbody>
+            <Statistic value={good} text="Good" />
+            <Statistic value={neutral} text="Neutral" />
+            <Statistic value={bad} text="Bad" />
+            <Statistic value={getTotal(good, neutral, bad)} text="All" />
+            <Statistic value={getAverage(good, neutral, bad)} text="Average" />
+            <Statistic value={getPercentage(good, neutral, bad)} text="Positive" />
+          </tbody>
+        </table>
       </>
   );
 
