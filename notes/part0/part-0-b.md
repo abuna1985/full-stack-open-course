@@ -1,6 +1,16 @@
-# Part 0-B
+# Part 0-B:  Fundamentals of Web apps
 
-## HTTP GET
+## Table Of Contents
+
+- [Part 0-B:  Fundamentals of Web apps](#part-0-b--fundamentals-of-web-apps)
+  - [Table Of Contents](#table-of-contents)
+    - [HTTP GET](#http-get)
+    - [Application logic to run in a browser](#application-logic-to-run-in-a-browser)
+    - [Document Object Model or DOM](#document-object-model-or-dom)
+    - [Summary](#summary)
+
+
+### HTTP GET
 
 ```
 Browser                                               Example App Server
@@ -13,7 +23,7 @@ V->HTTP GET Request https://studies.cs.helsinki.fi/exampleapp/kuva.png-->
 <--------<-------------Response: kuva.png-------<-----------<-----------V
 ```
 
-## Application logic to run in a browser
+### Application logic to run in a browser
 
 I have added notes that show my understanding about what is being run in main.js 
 
@@ -58,7 +68,7 @@ xhttp.open('GET', '/data.json', true)
 xhttp.send()
 ```
 
-## Document Object Model or DOM
+### Document Object Model or DOM
 
 Simple DOM representation fo the notes.html page
 
@@ -95,7 +105,7 @@ newElement.textContent = 'Page manipulation from console is easy';
 list.appendChild(newElement)
 ```
 
-## Summary
+### Summary
 
 It seems like they are trying to drive home the fact that single-page applications do a lot of server-side functionality (routing, data collection, etc.) on the client-side(front-end). You can see the difference with both exercise 0.4 and 0.6.
 
