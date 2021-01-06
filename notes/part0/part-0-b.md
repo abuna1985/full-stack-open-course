@@ -94,3 +94,16 @@ let newElement = document.createElement('li');
 newElement.textContent = 'Page manipulation from console is easy';
 list.appendChild(newElement)
 ```
+
+## Summary
+
+It seems like they are trying to drive home the fact that single-page applications do a lot of server-side functionality (routing, data collection, etc.) on the client-side(front-end). You can see the difference with both exercise 0.4 and 0.6.
+
+<img src="../../part0/chapter-0-part-4.png">
+
+**Notice the redirect causes the HTML, CSS, and JavaScript files are all downloaded again and rendered.**
+
+<img src="../../part0/chapter-0-part-6.png">
+
+
+**Now we are just adding it to the page immediately, then posting the new note in the server in case the user refreshes the page.**
