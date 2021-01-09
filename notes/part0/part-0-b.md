@@ -1,5 +1,7 @@
 # Part 0-B:  Fundamentals of Web apps
 
+<img src="./../images/part-0-b-fundamentals-of-web-apps.png" />
+
 ## Table Of Contents
 
 - [Part 0-B:  Fundamentals of Web apps](#part-0-b--fundamentals-of-web-apps)

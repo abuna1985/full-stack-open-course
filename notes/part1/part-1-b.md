@@ -1,5 +1,7 @@
 # Part 1-B: JavaScript
 
+<img src="./../images/part-1-b-javascript.png" />
+
 ## Table of Contents
 - [Part 1-B: JavaScript](#part-1-b-javascript)
   - [Table of Contents](#table-of-contents)

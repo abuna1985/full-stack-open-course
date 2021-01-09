@@ -1,5 +1,7 @@
 # Part 1-A: Introduction to React
 
+<img src="./../images/part-1-a-intro-to-react.png" />
+
 ## Table of Contents
 - [Part 1-A: Introduction to React](#part-1-a-introduction-to-react)
   - [Table of Contents](#table-of-contents)
