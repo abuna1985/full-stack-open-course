@@ -1,3 +1,7 @@
+# .eslint cache
 part1/courseinfo/.eslintcache
 part1/unicafe/.eslintcache
 part1/anectdotes/.eslintcache
+
+#VS Code
+.vscode
