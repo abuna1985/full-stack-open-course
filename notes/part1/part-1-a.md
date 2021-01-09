@@ -5,6 +5,8 @@
   - [Table of Contents](#table-of-contents)
     - [React Setup](#react-setup)
     - [React Component and JSX](#react-component-and-jsx)
+      - [Components](#components)
+      - [JSX](#jsx)
     - [Multiple Elements](#multiple-elements)
     - [Props](#props)
     - [Notes on React](#notes-on-react)
@@ -46,6 +48,9 @@ This means the only file in the `src` folder is:
 * index.css
 
 ### React Component and JSX
+
+
+#### Components
 
 We replace the current content of `index.js` with the following:
 
@@ -112,6 +117,7 @@ ReactDOM.render(
 );
 
 ```
+#### JSX
 
 **Note**: JSX is XML-like, which means that every tag needs to be closed. So if you have a component like:
 

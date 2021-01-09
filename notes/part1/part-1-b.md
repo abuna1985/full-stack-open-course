@@ -4,11 +4,16 @@
 - [Part 1-B: JavaScript](#part-1-b-javascript)
   - [Table of Contents](#table-of-contents)
     - [Variables](#variables)
+      - [Const and Let](#const-and-let)
     - [Arrays](#arrays)
+      - [Array Methods](#array-methods)
+      - [Array Destructuring](#array-destructuring)
     - [Objects](#objects)
-    - [Functions](#functions)
+    - [Arrow Functions](#arrow-functions)
     - [Summary](#summary)
-    - [Resources](#resources)
+    - [Additional Resources](#additional-resources)
+      - [Links from Full Stack Course](#links-from-full-stack-course)
+      - [MDN Links From Notes](#mdn-links-from-notes)
 
 ### Variables
 
@@ -26,9 +31,11 @@ console.log(x, y); // prints 1, sometext
 x = 4; // causes an error
 ```
 
-**Note:** [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) does not actually define a variable but a constant for which the value can no longer be changed.
+#### Const and Let
 
-**Note:** [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) defines a normal variable.
+* [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) does not actually define a variable but a constant for which the value can no longer be changed.
+
+* [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) defines a normal variable.
 
 ### Arrays
 
@@ -65,7 +72,9 @@ console.log(newNumbers); // prints [1, -1, 3, 5]
 
 ```
 
-**Note on Array Methods:** In the same spirit, we can use array methods like [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), and [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce). Let us take a look at a few examples of map:
+#### Array Methods
+
+ In the same spirit, we can use array methods like [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), and [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce). Let us take a look at a few examples of map:
 
 ```js
 // Example 1
@@ -92,7 +101,9 @@ console.log(listValues); // prints ['<li>1</li>', '<li>2</li>', '<li>3</li>']
 
 [Learn more about template literals here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
-**Note on Array Destructuring:** We can break the array into single elements or section of arrays by the [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). Let us see an example
+#### Array Destructuring
+
+We can break the array into single elements or section of arrays by the [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). Let us see an example
 
 ```js
 const arrOfNums = [1, 2, 3, 4, 5];
@@ -153,7 +164,7 @@ object1['secret number'] = 12341;
 console.log(object1.address); // prints 'Helsinki'
 ```
 
-### Functions
+### Arrow Functions
 
 Since we are using ES6 conventions, we will be using [Arrow function expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). Let's see a few examples:
 
@@ -203,7 +214,16 @@ const Header = (props) => {
 
 Current React standards (as of 2021) seem to heavily rely on ES6 standards. If you are not comfortable with ES6 features like array methods or arrow functions, read the docs. Google ES6 articles. Or you can search [dev.to for ES6 articles](https://dev.to/search?q=ES6). I will leave the articles from MDN in the [Resources section](#resources) below.
 
-### Resources
+### Additional Resources
+
+#### Links from Full Stack Course
+
+* [MDN - JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [MDN - A Re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
+* [JavaScript.info - references similar to MDN](https://javascript.info/)
+* [Kyle Simpson - You Don't Know JS Yet](https://github.com/getify/You-Dont-Know-JS)
+
+#### MDN Links From Notes
 
 * [MDN - const variable declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 * [MDN - let variable declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
