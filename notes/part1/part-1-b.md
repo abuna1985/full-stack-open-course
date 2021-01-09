@@ -210,6 +210,8 @@ const Header = (props) => {
 }
 ```
 
+**Note:** There is additional section on `Object methods and "this"` and `Classes`. Since we are mainly focused on functional components, I have decided to skip taking notes for this section. If I have time to come back around, I will add them here.
+
 ### Summary
 
 Current React standards (as of 2021) seem to heavily rely on ES6 standards. If you are not comfortable with ES6 features like array methods or arrow functions, read the docs. Google ES6 articles. Or you can search [dev.to for ES6 articles](https://dev.to/search?q=ES6). I will leave the articles from MDN in the [Resources section](#resources) below.
