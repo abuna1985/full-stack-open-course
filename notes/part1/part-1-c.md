@@ -297,6 +297,11 @@ const App = () => {
     <Button handleClick={setToZero} text='zero' />
   );
 }
+
+ReactDOM.render(
+  <App />, 
+  document.getElementById('root')
+);
 ```
 
 #### Lifting State
