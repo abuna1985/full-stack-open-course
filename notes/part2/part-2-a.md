@@ -15,6 +15,7 @@
     - [Anti-pattern: Array Indexes As Keys](#anti-pattern-array-indexes-as-keys)
   - [Refactoring To Modules](#refactoring-to-modules)
   - [Troubleshooting When The Application Breaks](#troubleshooting-when-the-application-breaks)
+  - [Summary](#summary)
 
 
 ## Recap
@@ -29,7 +30,125 @@ You also set breakpoints with the `debugger`. The JavaScript engine pauses runni
 
 ### JavaScript Arrays
 
+The examples will now be using functional JavaScript array methods like `find`, `filter`, `map`. If you are not 100% confident about how they work, you can watch the first 3 videos from the playlist [Functional Programming in JavaScript by funfunfunction](https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84):
+
+* [funfunfunction - Higher-order Functions](https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84)
+* [funfunfunction - Map](https://www.youtube.com/watch?v=bCqtb-Z5YGQ&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84&index=2)
+* [funfunfunction - Reduce basics](https://www.youtube.com/watch?v=bCqtb-Z5YGQ&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84&index=2)
+
 ## Rendering Collections
+
+Lets start with the following example from part 0 below:
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const notes = [
+  {
+    id: 1,
+    content: 'HTML is easy',
+    date: '2019-05-30T17:30:31.098Z',
+    important: true
+  },
+  {
+    id: 2,
+    content: 'Browser can execute only JavaScript',
+    date: '2019-05-30T18:39:34.091Z',
+    important: false
+  },
+  {
+    id: 3,
+    content: 'GET and POST are the most important methods of HTTP protocol',
+    date: '2019-05-30T19:20:14.298Z',
+    important: true
+  }
+];
+
+const App = (props) => {
+  const { notes } = props;
+
+  return (
+    <div>
+      <h1>Notes</h1>
+      <ul>
+        <li>{notes[0].content}</li>
+        <li>{notes[1].content}</li>
+        <li>{notes[2].content}</li>
+      </ul>
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App notes={notes} />,
+  document.getElementById('root')
+);
+```
+
+Every object within the `notes` array has the following properties:
+
+* A unique id
+* text content
+* a datestamp
+* A boolean value that notates whether the note is `important`
+
+We can improve this component by generating the React elements from the `notes` array using the [map array method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map).
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const notes = [
+  {
+    id: 1,
+    content: 'HTML is easy',
+    date: '2019-05-30T17:30:31.098Z',
+    important: true
+  },
+  {
+    id: 2,
+    content: 'Browser can execute only JavaScript',
+    date: '2019-05-30T18:39:34.091Z',
+    important: false
+  },
+  {
+    id: 3,
+    content: 'GET and POST are the most important methods of HTTP protocol',
+    date: '2019-05-30T19:20:14.298Z',
+    important: true
+  }
+];
+
+const App = ({notes}) => {
+  return (
+    <div>
+      <h1>Notes</h1>
+      <ul>
+        {notes.map(note => <li>{note.content}</li>)}
+      </ul>
+    </div>
+  )
+}
+
+ReactDOM.render(
+  <App notes={notes} />, 
+  document.getElementById('root')
+);
+```
+
+The result of the render will be similar to the part 0 example:
+
+```html
+<div>
+  <h1>Notes</h1>
+  <ul>
+    <li>HTML is easy</li>
+    <li>Browser can execute only JavaScript</li>
+    <li>GET and POST are the most important methods of HTTP protocol</li>
+  </ul>
+</div>
+```
 
 ### Key-attribute
 
@@ -40,3 +159,5 @@ You also set breakpoints with the `debugger`. The JavaScript engine pauses runni
 ## Refactoring To Modules
 
 ## Troubleshooting When The Application Breaks
+
+## Summary
