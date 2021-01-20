@@ -5,18 +5,18 @@
 ## Table of Contents
 - [Part 1-A: Introduction to React](#part-1-a-introduction-to-react)
   - [Table of Contents](#table-of-contents)
-    - [React Setup](#react-setup)
-    - [React Component and JSX](#react-component-and-jsx)
-      - [Components](#components)
-      - [JSX](#jsx)
-    - [Multiple Elements](#multiple-elements)
-    - [Props](#props)
-    - [Notes on React](#notes-on-react)
-    - [Summary](#summary)
-    - [Additional Resources](#additional-resources)
+  - [1. React Setup](#1-react-setup)
+  - [2. React Component and JSX](#2-react-component-and-jsx)
+    - [2a. Components](#2a-components)
+    - [2b. JSX](#2b-jsx)
+  - [3. Multiple Elements](#3-multiple-elements)
+  - [4. Props](#4-props)
+  - [5. Notes on React](#5-notes-on-react)
+  - [6. Summary](#6-summary)
+  - [7. Additional Resources](#7-additional-resources)
 
 
-### React Setup
+## 1. React Setup
 
 Using `create-react-app` is the easiest way to get started. Run the following commands in your terminal (Bash/Zsh) to get started:
 
@@ -49,10 +49,10 @@ This means the only file in the `src` folder is:
 * index.js
 * index.css
 
-### React Component and JSX
+## 2. React Component and JSX
 
 
-#### Components
+### 2a. Components
 
 We replace the current content of `index.js` with the following:
 
@@ -119,7 +119,7 @@ ReactDOM.render(
 );
 
 ```
-#### JSX
+### 2b. JSX
 
 **Note**: JSX is XML-like, which means that every tag needs to be closed. So if you have a component like:
 
@@ -135,7 +135,7 @@ You will have to make sure to add a / to close the element
 <App />
 ```
 
-### Multiple Elements
+## 3. Multiple Elements
 
  **Note:** A core philosophy of React is composing applications from many specialized reusable components.
 
@@ -169,7 +169,7 @@ const App = () => {
 ReactDOM.render(<App />, document.getElementById('root'));
  ```
 
-### Props
+## 4. Props
 
 We can use [React props](https://reactjs.org/docs/components-and-props.html) to pass data to components. Here is an example using the `Hello` component from the previous section:
 
@@ -209,7 +209,7 @@ const App = () => {
 
 ```
 
-### Notes on React
+## 5. Notes on React
 
 Here are some helpful notes on React:
 
@@ -262,11 +262,11 @@ const App = () => {
 **Note:** `import React from 'react';` needs to be included in the file to access fragments
 **Note**: Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names. For example, the attribute `class` becomes `className` in JSX, and `tabindex` becomes `tabIndex`.
 
-### Summary
+## 6. Summary
 
 A core philosophy of React is composing applications from many specialized reusable components. It is common to use functions for React component that accepts a single “props” (which stands for properties) object argument with data and returns JSX (JavaScript XML).
 
-### Additional Resources
+## 7. Additional Resources
 
 * [React Tutorial: An Overview and Walkthrough - Tania Rascia](https://www.taniarascia.com/getting-started-with-react/)
 * [Reactjs.org - Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html)
