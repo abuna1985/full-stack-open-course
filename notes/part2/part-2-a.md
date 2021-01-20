@@ -317,10 +317,141 @@ Now lets refactor to create a Note component:
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+const Note = ({ note }) => {  
+  return (    
+    <li>{note.content}</li>  
+  );
+}
+
+const App = ({ notes }) => {
+  return (
+    <div>
+      <h1>Notes</h1>
+      <ul>
+        {/* Notice now we pass the `note` prop into the Note component*/}
+        {notes.map(note => <Note key={note.id} note={note} /> )}      
+      </ul>
+    </div>
+  )
+}
+
+ReactDOM.render(
+  <App notes={notes} />, 
+  document.getElementById('root')
+);
+```
+
+**Note:** The `key` attribute must now be defined for the `<Note>` component, and not for the li tags like before.
+
+A common practice is to declare each component in their own file as an ES6-module.
+
+Notice in `index.js`:
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+```
+
+We import the `React` variable from the 'react' npm package and `ReactDOM` from the 'react-dom' npm package.
+
+Let's move our Note component into its own module.
+
+In smaller applications, components are usually placed in a directory called `components`, which is in turn placed within the src directory. The convention is to name the file after the component.
+
+```js
+// src/components/Note.js
+import React from 'react'
+
+const Note = ({ note }) => {
+  return (
+    <li>{note.content}</li>
+  )
+}
+
+export default Note
+```
+
+Now we can import Note into `App.js`
+
+```js
+// src/App.js
+import React from 'react';
+import Note from './components/Note'
+
+const App = ({ notes }) => {
+  return (
+    <div>
+      <h1>Notes</h1>
+      <ul>
+        {/* Now the <Note> will be imported to this file and everything works*/}
+        {notes.map(note => <Note key={note.id} note={note} /> )}      
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+```
+
+**Note:** When importing components, the location must be given in relation to the importing file:
+
+```js
+'./components/Note'
+```
+
+The period - . - refers to the current directory. Within the current directory, there should be a `components` folder. And in the `components` directory, there should be a `Note.js` file. 
+
+The filename extension - `.js` - can be omitted.
+
+Now we can import `<App>` to `index.js`
+
+```js
+// src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+const notes = [
+  // ...
+];
+
+ReactDOM.render(
+  <App notes={notes} />,
+  document.getElementById('root')
+);
 ```
 
 ## 4. Troubleshooting When The Application Breaks
 
+Quite often the root of the problem is that the props are expected to be of a different type, or called with a different name than they actually are, and destructuring fails as a result. 
+
+The problem often begins to solve itself when destructuring is removed and we see what the props actually contains.
+
+```js
+const Course = (props) => {  
+  // we get to see the props in the console
+  console.log(props);  
+  const { course } = props;
+
+  return (
+    <div>
+      <Header course={course} />
+    </div>
+  )
+}
+```
+
+If the problem has still not been resolved, there really isn't much to do apart from continuing to bug-hunt by sprinkling more console.log statements around your code.
+
 ## 5. Summary
 
+When you have an array and want to display these elements in React, you use the `map` array method. You also need to include `key` attribute with a unique id. 
+
+We can also move single components into their own file and `import` them into our `App.js`.
+
 ## 6. Links to Resources
+
+* [dev.to - Detailed Debugging Article by Justin E. Samuels](https://dev.to/thugdebugger/dude-get-a-debugger-3ige)
+* [Functional Programming in JavaScript Playlist by FunFunFunction](https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84)
+* [MDN Docs - Map array method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+* [React Docs - List And Keys](https://reactjs.org/docs/lists-and-keys.html#keys)
+* [Medium - Array Indexes As React Keys Is An Anti-Pattern](https://robinpokorny.medium.com/index-as-a-key-is-an-anti-pattern-e0349aece318)
