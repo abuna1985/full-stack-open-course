@@ -20,5 +20,5 @@
 
 ## Part 2
 
-*[Part 2-A: Rendering A Collection And Modules](./part2/part-2-a.md)
+* [Part 2-A: Rendering A Collection And Modules](./part2/part-2-a.md)
 * [Part 2-B: Forms](./part2/part-2-b.md)
