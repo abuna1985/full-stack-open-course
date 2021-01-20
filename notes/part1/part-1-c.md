@@ -5,16 +5,16 @@
 ## Table of Contents
 - [Part 1-C:  Component state, event handlers](#part-1-c--component-state-event-handlers)
   - [Table of Contents](#table-of-contents)
-    - [Component Helper Functions](#component-helper-functions)
-    - [Props Destructuring](#props-destructuring)
-    - [Stateful Component](#stateful-component)
-    - [Event Handling](#event-handling)
-    - [Event Handler Is A Function](#event-handler-is-a-function)
-    - [Passing state to child components](#passing-state-to-child-components)
-      - [Lifting State](#lifting-state)
-    - [Changes in state cause re-rendering](#changes-in-state-cause-re-rendering)
-    - [Summary](#summary)
-    - [Additional Resources](#additional-resources)
+  - [1. Component Helper Functions](#1-component-helper-functions)
+  - [2. Props Destructuring](#2-props-destructuring)
+  - [3. Stateful Component](#3-stateful-component)
+  - [4. Event Handling](#4-event-handling)
+  - [5. Event Handler Is A Function](#5-event-handler-is-a-function)
+  - [6. Passing state to child components](#6-passing-state-to-child-components)
+    - [6a. Lifting State](#6a-lifting-state)
+  - [7 Changes in state cause re-rendering](#7-changes-in-state-cause-re-rendering)
+  - [8. Summary](#8-summary)
+  - [9. Additional Resources](#9-additional-resources)
 
 
 **Note:** We are starting with this example within `index.js`:
@@ -50,7 +50,7 @@ const App = () => {
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-### Component Helper Functions
+## 1. Component Helper Functions
 
 Let's add a helper function that returns the year of birth given the user's age:
 
@@ -111,7 +111,7 @@ The result when you go to `http://localhost:3000` and look at the inspector you 
 
 ```
 
-### Props Destructuring
+## 2. Props Destructuring
 
 We breaks objects (similar to arrays) with [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring). Lets take a look at our `Hello` component:
 
@@ -152,7 +152,7 @@ const Hello = ({name, age}) => {
 ```
 
 
-### Stateful Component
+## 3. Stateful Component
 
 We will now create a new `App` example to show how we use the new [State hook](https://reactjs.org/docs/hooks-state.html). We will use state hooks to increment a counter within the component state and increment every second:
 
@@ -185,7 +185,7 @@ ReactDOM.render(
 )
 ```
 
-### Event Handling
+## 4. Event Handling
 
 **Refresher:** Event handlers are functions that run on a specific event (i.e click, onmouseover, etc). [Learn more about handling events in React here](https://reactjs.org/docs/handling-events.html). We will now convert our `App` to increment the count with a click event instead of a timed event. We will also add a button that sets the count to 0:
 
@@ -211,7 +211,7 @@ ReactDOM.render(
 );
 ```
 
-### Event Handler Is A Function
+## 5. Event Handler Is A Function
 
 Notice our onclick function for adding 1 to counter:
 
@@ -269,7 +269,7 @@ ReactDOM.render(
 );
 ```
 
-### Passing state to child components
+## 6. Passing state to child components
 
 Let's refactor our application so that it's composed of three smaller components, one component for displaying the counter and two components for buttons:
 
@@ -304,7 +304,7 @@ ReactDOM.render(
 );
 ```
 
-#### Lifting State
+### 6a. Lifting State
 
 One best practice in React is to [lift the state up](https://reactjs.org/docs/lifting-state-up.html) in the component hierarchy. The documentation says:
 
@@ -312,7 +312,7 @@ One best practice in React is to [lift the state up](https://reactjs.org/docs/li
 Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor.
 ```
 
-### Changes in state cause re-rendering
+## 7 Changes in state cause re-rendering
 
 Let's go over the main principles of how an application works once more.
 
@@ -337,11 +337,11 @@ So, if a user clicks the plus button
 * The Button components receive event handlers which can be used to change the state of the counter.
 
 
-### Summary
+## 8. Summary
 
 It's a good idea to build React components that are small and reusable across the application and even across projects. This can be accomplished with props and state.
 
-### Additional Resources
+## 9. Additional Resources
 
 * [MDN - object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring)
 * [React Docs - State hook](https://reactjs.org/docs/hooks-state.html)
