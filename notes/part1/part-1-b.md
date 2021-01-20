@@ -6,16 +6,16 @@
 - [Part 1-B: JavaScript](#part-1-b-javascript)
   - [Table of Contents](#table-of-contents)
   - [1. Variables](#1-variables)
-    - [1a. Const and Let](#1a-const-and-let)
+    - [1.a Const and Let](#1a-const-and-let)
   - [2. Arrays](#2-arrays)
-    - [2a. Array Methods](#2a-array-methods)
-    - [2b. Array Destructuring](#2b-array-destructuring)
+    - [2.a Array Methods](#2a-array-methods)
+    - [2.b Array Destructuring](#2b-array-destructuring)
   - [3. Objects](#3-objects)
   - [4. Arrow Functions](#4-arrow-functions)
   - [5. Summary](#5-summary)
   - [6. Additional Resources](#6-additional-resources)
-    - [6a. Links from Full Stack Course](#6a-links-from-full-stack-course)
-    - [6b. MDN Links From Notes](#6b-mdn-links-from-notes)
+    - [6.a Links from Full Stack Course](#6a-links-from-full-stack-course)
+    - [6.b MDN Links From Notes](#6b-mdn-links-from-notes)
 
 ## 1. Variables
 
@@ -33,7 +33,7 @@ console.log(x, y); // prints 1, sometext
 x = 4; // causes an error
 ```
 
-### 1a. Const and Let
+### 1.a Const and Let
 
 * [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) does not actually define a variable but a constant for which the value can no longer be changed.
 
@@ -74,7 +74,7 @@ console.log(newNumbers); // prints [1, -1, 3, 5]
 
 ```
 
-### 2a. Array Methods
+### 2.a Array Methods
 
  In the same spirit, we can use array methods like [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), and [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce). Let us take a look at a few examples of map:
 
@@ -103,7 +103,7 @@ console.log(listValues); // prints ['<li>1</li>', '<li>2</li>', '<li>3</li>']
 
 [Learn more about template literals here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
-### 2b. Array Destructuring
+### 2.b Array Destructuring
 
 We can break the array into single elements or section of arrays by the [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). Let us see an example
 
@@ -220,14 +220,14 @@ Current React standards (as of 2021) seem to heavily rely on ES6 standards. If y
 
 ## 6. Additional Resources
 
-### 6a. Links from Full Stack Course
+### 6.a Links from Full Stack Course
 
 * [MDN - JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [MDN - A Re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 * [JavaScript.info - references similar to MDN](https://javascript.info/)
 * [Kyle Simpson - You Don't Know JS Yet](https://github.com/getify/You-Dont-Know-JS)
 
-### 6b. MDN Links From Notes
+### 6.b MDN Links From Notes
 
 * [MDN - const variable declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 * [MDN - let variable declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)

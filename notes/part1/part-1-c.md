@@ -11,7 +11,7 @@
   - [4. Event Handling](#4-event-handling)
   - [5. Event Handler Is A Function](#5-event-handler-is-a-function)
   - [6. Passing state to child components](#6-passing-state-to-child-components)
-    - [6a. Lifting State](#6a-lifting-state)
+    - [6.a Lifting State](#6a-lifting-state)
   - [7 Changes in state cause re-rendering](#7-changes-in-state-cause-re-rendering)
   - [8. Summary](#8-summary)
   - [9. Additional Resources](#9-additional-resources)
@@ -304,7 +304,7 @@ ReactDOM.render(
 );
 ```
 
-### 6a. Lifting State
+### 6.a Lifting State
 
 One best practice in React is to [lift the state up](https://reactjs.org/docs/lifting-state-up.html) in the component hierarchy. The documentation says:
 
