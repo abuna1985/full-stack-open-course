@@ -1,5 +1,7 @@
 # Full Stack Open Course Progress
 
+<img src="./notes/images/fullstackopen-readme.png" />
+
 ## Table of Contents
 
 - [Full Stack Open Course Progress](#full-stack-open-course-progress)
