@@ -1,15 +1,19 @@
 import Header from '../Header';
 import Content from '../Content';
 
-const Course = ({course} ) => {
-  const {name, parts} = course;
-
+const Course = ({courses}) => {
   
   return (
-    <div>
-      <Header>{name}</Header>
-      <Content parts={parts} />
-    </div>
+    <>
+      {courses.map(({name, id, parts}) => {
+        return (
+          <div key={id}>
+            <Header>{name}</Header>
+            <Content parts={parts} />
+          </div>
+        )
+      })}
+    </>
   );
 }
 
