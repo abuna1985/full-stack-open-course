@@ -165,9 +165,7 @@ import Note from './components/Note'
 
 const App = ({ notes }) => {
   const [notes, setNotes] = useState(notes);
-  const [newNote, setNewNote] = useState(
-    'a new note...'
-  ) ;
+  const [newNote, setNewNote] = useState('') ;
 
   const addNote = (event) => {
     event.preventDefault();
@@ -193,10 +191,10 @@ const App = ({ notes }) => {
       // then we compare the result to see if it is less than 0.5
       // this expression returns a boolean (true or false)
 
-      //now we add to the `notes` state array via the concat method (concat returns a new copy of the array with the additional noteObject)
-      setnotes(notes.concat(noteObject));
-      // we can now reset the state value of newNote to nothing since we added the value to notes
-      setNewnote('');
+    //now we add to the `notes` state array via the concat method (concat returns a new copy of the array with the additional noteObject)
+    setNotes(notes.concat(noteObject));
+    // we can now reset the state value of newNote to nothing since we added the value to notes
+    setNewNote('');
   }
 
   const handleNoteChange = (event) => {
@@ -227,8 +225,87 @@ const App = ({ notes }) => {
 export default App;
 ```
 
+Here is an explanation on why [you never mutate state directly in React](https://reactjs.org/docs/state-and-lifecycle.html#using-state-correctly).
 ## 2. Filtering Displayed Elements
+
+Now lets add a button that can toggle between all the notes and only notes marked `important`:
+
+```js
+import React, { useState } from 'react';
+import Note from './components/Note'
+
+const App = ({ notes }) => {
+  const [notes, setNotes] = useState(notes);
+  const [newNote, setNewNote] = useState('') ;
+  // set a `showAll` state value that is a boolean
+  const [ShowAll, setShowAll] = useState(true);
+
+  // if showAll is true, return notes state array
+  // if showAll is false, return notes that the `important` key has the `true` boolean value
+  const notesToShow = showAll 
+  ? notes 
+  : notes.filter(note => note.important);
+
+  const addNote = (event) => {
+    event.preventDefault();
+    const noteObject = {
+      id: notes.length + 1,
+      content: newNote,
+      date: new Date().toISOString(),
+      important: Math.random() < 0.5,
+    }
+    setNotes(notes.concat(noteObject));
+    setNewNote('');
+  }
+
+  const handleNoteChange = (event) => {
+    console.log(event.target.value)
+    setNewNote(event.target.value)
+  }
+
+
+  return (
+    <div>
+      <h1>Notes</h1>
+       <div>
+        {/* when the button is clicked it toggles the boolean value for for showAll*/}
+        {/* if showAll is true, it says `show important`*/}
+        {/* If showAll is false, it says `show all` */}
+        <button onClick={() => setShowAll(!showAll)}>
+          show {showAll ? 'important' : 'all' }
+        </button>
+      </div>
+      <ul>
+        {/* Now we use the notesToShow variable*/}
+        {notesToShow.map(note => 
+          <Note key={note.id} note={note} />
+        )}
+      </ul>
+      <form onSubmit={addNote}>
+        <input 
+          value={newNote}
+          onChange={handleNoteChange}
+        />
+        <button type="submit">save</button>
+      </form>   
+    </div>
+  )
+}
+
+export default App;
+```
 
 ## 3. Summary
 
+We can use the `<form>` HTML element, but we must include `event.preventDefault()` to stop the page from refreshing.
+
+We can use controlled components to tie the `<input>` value to the component state to have one central location for the value. We can also pass that state value for creating/updating data within our application.
+
+
 ## 4. Links To Resources
+
+* [React Docs - State hooks (useState)](https://reactjs.org/docs/hooks-state.html)
+* [MDN Docs - HTML forms](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms)
+* [React Docs - Handling Events](https://reactjs.org/docs/handling-events.html)
+* [React Docs - Controlled Components](https://reactjs.org/docs/forms.html#controlled-component)
+* [React Docs - Using State Correctly](https://reactjs.org/docs/state-and-lifecycle.html#using-state-correctly)
