@@ -4,16 +4,20 @@ import './App.css';
 const App = () => {
   const [persons, setPersons] = useState([
     {
-      name: 'Michael Scott'
+      name: 'Michael Scott',
+      number: '555-123-4567',
     },
     {
-      name: 'Jim Halpert'
+      name: 'Jim Halpert',
+      number: '555-888-5212',
     },
     {
-      name: 'Dwight Schrute'
+      name: 'Dwight Schrute',
+      number: '555-555-5555',
     }
   ]);
   const [newName, setNewName] = useState('');
+  const [newPhoneNumber, setNewPhoneNumber] = useState('');
 
   // Event Handler when user types in the <input> element
   const handleNameChange = (event) => {
@@ -21,10 +25,16 @@ const App = () => {
     setNewName(event.target.value);
   }
 
+  const handlePhoneChange = (event) => {
+    // console.log('handleNameChange value', event.target.value);
+    setNewPhoneNumber(event.target.value);
+  }
+
   // Event Handler when the button nested in the <form> is clicked
   const addName = (event) => {
     const nameObj = {
-      name: newName
+      name: newName,
+      number: newPhoneNumber,
     };
     // prevent <form> default
     event.preventDefault();
@@ -38,6 +48,7 @@ const App = () => {
     
     setPersons(persons.concat(nameObj));
     setNewName('');
+    setNewPhoneNumber('');
   }
   return (
     <div>
@@ -47,11 +58,14 @@ const App = () => {
           name: <input value={newName} onChange={handleNameChange} />
         </div>
         <div>
+          phone: <input value={newPhoneNumber} onChange={handlePhoneChange} />
+        </div>
+        <div>
           <button type="submit">add</button>
         </div>
       </form>
       <h2>Numbers</h2>
-      {persons.map(({name}) => <div key={name}>{name}</div>)}
+      {persons.map(({name, number}) => <div key={name}>{name} {number}</div>)}
     </div>
   );
 }
