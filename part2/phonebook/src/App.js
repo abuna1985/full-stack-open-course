@@ -18,6 +18,11 @@ const App = () => {
   ]);
   const [newName, setNewName] = useState('');
   const [newPhoneNumber, setNewPhoneNumber] = useState('');
+  const [searchName, setSearchName] = useState('');
+
+   // If searchName exists, filter with the current searchName
+  // Else default to the person state array
+  const namesToShow = searchName   ? persons.filter(person => person.name.includes(searchName)) : persons;
 
   // Event Handler when user types in the <input> element
   const handleNameChange = (event) => {
@@ -26,8 +31,13 @@ const App = () => {
   }
 
   const handlePhoneChange = (event) => {
-    // console.log('handleNameChange value', event.target.value);
+    // console.log('handlePhoneChange value', event.target.value);
     setNewPhoneNumber(event.target.value);
+  }
+
+  const handleSearchChange = (event) => {
+    // console.log('handleSearchChange value', event.target.value);
+    setSearchName(event.target.value);
   }
 
   // Event Handler when the button nested in the <form> is clicked
@@ -50,9 +60,15 @@ const App = () => {
     setNewName('');
     setNewPhoneNumber('');
   }
+
+ 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h1>Phonebook</h1>
+      <div>
+        filter shown with: <input value={searchName} onChange={handleSearchChange} />
+      </div>
+      <h2>Add a new</h2>
       <form onSubmit={addName}>
         <div>
           name: <input value={newName} onChange={handleNameChange} />
@@ -65,7 +81,7 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      {persons.map(({name, number}) => <div key={name}>{name} {number}</div>)}
+      {namesToShow.map(({name, number}) => <div key={name}>{name} {number}</div>)}
     </div>
   );
 }
