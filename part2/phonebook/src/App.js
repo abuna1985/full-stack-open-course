@@ -23,10 +23,19 @@ const App = () => {
 
   // Event Handler when the button nested in the <form> is clicked
   const addName = (event) => {
-    event.preventDefault();
     const nameObj = {
       name: newName
     };
+    // prevent <form> default
+    event.preventDefault();
+
+    // If the value in the <input> matches any names in the persons array
+    // Make an alert and return the function before we add the name
+    if (persons.some(person => person.name === newName)) {
+      alert(`${newName} is already added to phonebook`);
+      return false;
+    }
+    
     setPersons(persons.concat(nameObj));
     setNewName('');
   }
