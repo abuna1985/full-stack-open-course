@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import Title from './components/Title';
+import Filter from './components/Filter';
+import PersonForm from './components/PersonForm';
+import Persons from './components/Persons';
 import './App.css';
 
 const App = () => {
@@ -22,7 +26,7 @@ const App = () => {
 
    // If searchName exists, filter with the current searchName
   // Else default to the person state array
-  const namesToShow = searchName   ? persons.filter(person => person.name.includes(searchName)) : persons;
+  const personsToShow = searchName ? persons.filter(person => person.name.toLowerCase().includes(searchName.toLowerCase())) : persons;
 
   // Event Handler when user types in the <input> element
   const handleNameChange = (event) => {
@@ -64,24 +68,18 @@ const App = () => {
  
   return (
     <div>
-      <h1>Phonebook</h1>
-      <div>
-        filter shown with: <input value={searchName} onChange={handleSearchChange} />
-      </div>
-      <h2>Add a new</h2>
-      <form onSubmit={addName}>
-        <div>
-          name: <input value={newName} onChange={handleNameChange} />
-        </div>
-        <div>
-          phone: <input value={newPhoneNumber} onChange={handlePhoneChange} />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <h2>Numbers</h2>
-      {namesToShow.map(({name, number}) => <div key={name}>{name} {number}</div>)}
+      <Title>Phonebook</Title>
+      <Filter val={searchName} handleChange={handleSearchChange} />
+      <Title type="h2">Add a new</Title>
+      < PersonForm 
+        handleSubmit={addName}
+        handleNameChange={handleNameChange}
+        handlePhoneChange={handlePhoneChange} 
+        nameVal={newName}
+        phoneVal={newPhoneNumber}
+      />
+      <Title type="h2">Numbers</Title>
+      <Persons persons={personsToShow} />
     </div>
   );
 }
