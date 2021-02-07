@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Title from './components/Title';
 import Filter from './components/Filter';
 import PersonForm from './components/PersonForm';
@@ -6,23 +7,40 @@ import Persons from './components/Persons';
 import './App.css';
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    {
-      name: 'Michael Scott',
-      number: '555-123-4567',
-    },
-    {
-      name: 'Jim Halpert',
-      number: '555-888-5212',
-    },
-    {
-      name: 'Dwight Schrute',
-      number: '555-555-5555',
-    }
-  ]);
+  const [persons, setPersons] = useState([]);
   const [newName, setNewName] = useState('');
   const [newPhoneNumber, setNewPhoneNumber] = useState('');
   const [searchName, setSearchName] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  // will only run once 
+  useEffect(() => {
+    // set loading state to true
+    setIsLoading(true);
+    // make the GET request
+    axios
+      .get('http://localhost:3001/persons')
+      .then(response => {
+        // add the persons array
+        setPersons(response.data);
+        // stop loading state
+        setIsLoading(false);
+        // if error state is active, reset it
+        if (isError) {
+          setIsError(false);
+        }
+      })
+      .catch((err) => {
+        // set error to true
+        setIsError(true);
+        // stop loading state
+        setIsLoading(false);
+        // log the error
+        console.error(err);
+      });
+  // eslint-disable-next-line 
+  }, [])
 
    // If searchName exists, filter with the current searchName
   // Else default to the person state array
@@ -79,7 +97,16 @@ const App = () => {
         phoneVal={newPhoneNumber}
       />
       <Title type="h2">Numbers</Title>
-      <Persons persons={personsToShow} />
+      {/* iff Error, show this */}
+      {isError && <p>Something went wrong ...</p>}
+      {/* if loading, show loading state */}
+      {/* else show the list of persons */}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <Persons persons={personsToShow} />
+      )
+      }
     </div>
   );
 }
